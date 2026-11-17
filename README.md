@@ -19,7 +19,7 @@
 
 ### 方式一：直接运行 exe
 
-从 [Releases](../../releases) 下载 `快手视频下载.exe`，双击即可。
+从 [Releases](../../releases) 下载 `KuaishouVideoDownloader.exe`（即「快手视频下载」），双击即可。
 
 > 首次启动会解压到临时目录，大约慢 2–3 秒；因为没有代码签名，Windows SmartScreen 可能提示"未知发布者"，点「更多信息 → 仍要运行」。
 
