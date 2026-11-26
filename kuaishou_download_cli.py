@@ -30,7 +30,8 @@ BASES = [
     "https://v.m.chenzhongtech.com/fw/photo/%s?fid=0&cc=share_copylink&followRefer=151",
 ]
 
-ID_RE = re.compile(r"short-video/([A-Za-z0-9_-]{6,})")
+# 支持：kuaishou.com/short-video/xxx、gifshow.com/fw/photo/xxx、纯 ID
+ID_RE = re.compile(r"(?:short-video|/photo)/([A-Za-z0-9_-]{6,})")
 BARE_RE = re.compile(r"^[A-Za-z0-9_-]{10,16}$")
 
 

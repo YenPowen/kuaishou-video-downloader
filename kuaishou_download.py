@@ -133,7 +133,8 @@ ICON_PNG_B64 = (
     "q+phhidEmcfO7zWYKc9rRvixB3eR5bvyz+yfrcAwx10/W/4fWz8VUfQEK68AAAAASUVORK5CYII="
 )
 
-ID_RE = re.compile(r"short-video/([A-Za-z0-9_-]{6,})")
+# 支持三种链接：www.kuaishou.com/short-video/xxx、www.gifshow.com/fw/photo/xxx、纯 ID
+ID_RE = re.compile(r"(?:short-video|/photo)/([A-Za-z0-9_-]{6,})")
 BARE_RE = re.compile(r"^[A-Za-z0-9_-]{10,16}$")
 
 
@@ -141,8 +142,8 @@ def parse_input(text: str):
     """把用户粘贴的文本拆成条目列表：("id", 短链ID) 或 ("share", v.kuaishou.com 短链)"""
     items, seen = [], set()
     for line in text.splitlines():
-        line = line.strip().strip('"\'，,')
-        if not line:
+        line = line.strip().strip('"\'，,。；;')
+        if not line or line.startswith("#"):
             continue
         m = ID_RE.search(line)
         if m:
